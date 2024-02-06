@@ -1,0 +1,113 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <style>
+        body {
+            margin: 0%;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DEB887;
+        }
+        h1{
+            margin-top: 0%;
+            text-align: center;
+            color: white;
+            text-decoration: underline;
+        }
+        li{
+            display: flex;
+            flex-direction: row;
+            height: 15%;
+            background-color: #874e04;
+            margin-bottom: 3%;
+            margin-right: 4%;
+        }
+        img{
+            width: 16.5%;
+        }
+        .op{
+            display: flex;
+            margin: 5%;
+            flex-direction: column;
+            color: white;
+        }
+        p{
+          color: white;
+          font-size: 150%;
+          text-align: center;
+        }
+        .navbar {
+            background-color: #CD853F;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar button {
+            margin-left: 2%;
+            background-color: #B77433;
+            color: #fff;
+            border: 0;
+            font-size: 110%;
+            border-radius: 3px;
+            width: 6%;
+            
+            cursor: pointer;
+        }
+        .navbar button:hover{
+            background-color: #b27d49;
+        }
+        strong{
+            margin-bottom: 1%;
+        }
+        @media (max-width: 768px) {
+            img{
+                width: 20%;
+                align-items: center;
+                height: 90%;
+            }
+            li{
+                height: 10%;
+                width: 95%;
+            }
+            body{
+                margin: 0%;
+            }
+            .navbar button{
+              width: 30%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+  <div class="navbar">
+    <button onclick="location.href='/'">Home</button>
+</div>
+  <h1>Your Cart</h1>
+
+  {% if user_orders %}
+    <ul>
+      {% for order in user_orders %}
+        <li>
+          <img src="{{ order.artwork.image.url }}" alt="{{order.artwork.title}}"><br>
+         <div class="op">
+        <strong>{{ order.artwork.title }}</strong><br>
+          <strong>County: </strong>{{ order.county }}<br>
+          <strong>Address: </strong>{{ order.address }}<br>
+          <strong>Phone: </strong>{{ order.phone }}<br>
+          <strong>Payment Status: </strong>{{ order.payment }}<br>
+        </div>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Your cart is empty.</p>
+  {% endif %}
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DEB887;
+        }
+        .navbar {
+            background-color: #CD853F;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar button {
+            margin-left: 2%;
+            background-color: #B77433;
+            color: #fff;
+            border: 0;
+            font-size: 110%;
+            border-radius: 3px;
+            width: 6%;
+            
+            cursor: pointer;
+        }
+        .navbar button:hover{
+            background-color: #b27d49;
+        }
+
+        
+
+    
+        .banner {
+            width: 100%;
+            height: 35vh;
+            background-image: url(' /static/ban.jpg');
+            background-size: contain;
+            opacity: 90%;
+            background-repeat: no-repeat;
+            background-color: #b2915e;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align:px center;
+        }
+        .delulu{
+            color: antiquewhite;
+            background-color: #b27d49;
+            margin-top: 1.5%;
+            padding: 1%;
+            font-size: 90%;
+        }
+        a{
+            color: #eac2b4;
+            font-size: 120%;
+        }
+        .me{
+            color: antiquewhite;
+            margin-top: 1.5%;
+            font-size: 90%;
+            padding: 1%;
+            background-color: #b27d49;
+
+        }
+        .banner h1{
+            font-size: 350%;
+            margin-bottom: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .banner p{
+            font-size: 170%;
+            color: #f4e7da;
+            font-family: 'Times New Roman', Times, serif;
+            width: 35%;
+            font-weight: 520;
+        }
+        @media (max-width: 768px) {
+            .banner{
+                height: 30vh;
+            }
+            .banner h1{
+                font-size: 200%;
+                margin-top: 20%;
+            }
+            .banner p{
+                width: 90%;
+                margin-bottom: 20%;
+                font-size: 150%;
+
+            }
+            .navbar button{
+                width: 15%;
+                padding: 1.5%;
+                font-size: 80%;
+                font-weight: 600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <button onclick="location.href='/'">Home</button>
+    </div>
+    <div class="banner">
+        <h1>FEEL THE ART</h1>
+        <p>Art not only deserves to be seen but to be felt.
+            it’s not just a picture but a story.</p>
+    </div>
+    <div class="delulu">
+        <h1>Gloria Mukami</h1>
+        <h2>Founder</h2>
+        <h2>Artist</h2>
+        <a href="https://www.instagram.com/kanverse.creations/">DM for enquiries</a>
+    </div>
+        
+    <div class="me">
+        <h1>Wayne Kimutai</h1>
+        <h2>Developer</h2>
+        <h2>Sales</h2>
+        <a href="https://www.instagram.com/kanverse.creations/">DM for enquiries</a>
+    </div>
+</body>
+</html>

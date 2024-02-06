@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unavailable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D2B48C;
+        }
+        .log {
+            display:flex;
+            flex-direction: column;
+            width: 60%;
+            height: 60%;
+            color: white;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            border-color: black;
+            border-radius: 3px;
+            background-color: #DEB887;
+            box-shadow: 0 2px 4px white;
+        }
+        p{
+           font-size: 150%; 
+        
+        }
+        a{
+            color: brown;
+        }
+        button{
+            width: 60%;
+            padding: 5%;
+            height: 15%;
+            font-size: 130%;
+            border: 1px solid #ccc;
+            border-radius: 4%;
+            box-sizing: border-box;
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+        }
+      
+        button:hover{
+            background-color: #e8a059;
+        }
+        @media (max-width: 768px) {
+            h1{
+                margin-bottom: 0%;
+                text-decoration: underline;
+            }
+            p{
+                margin-top: 2%; 
+            }
+            button{
+                font-size: 110%;
+                margin-bottom: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="log">
+<h1>Sorry but this piece is no longer available.</h1>
+<p>The art piece '{{ artwork.title }}' has already been purchased. If you want to enquire about getting a similar piece or a custom painting done, <a href="/contacts">contact us</a> </p>
+<button onclick="location.href='/'">Back to the Gallery</button>
+</div>
+</body>
+</html>

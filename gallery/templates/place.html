@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Order</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DEB887;
+            display: flex;
+            flex-direction: column;
+            color: white;
+        }
+        h1{
+            color: white;
+            text-align: center;
+            text-decoration: underline;
+        }
+        h2{
+            color: white;
+            text-align: center;
+            text-decoration: underline;
+        }
+        img{
+            align-self: center;
+            width: auto;
+            height: 450px;
+            border: 2px solid white;
+         }
+         p{
+            color: white;
+            margin: 1%;
+            text-align: center;
+            font-size: 120%;}
+        .b{
+            margin-left: 35%;
+            width: 30%;
+            padding: 2%;
+            margin-top: 3%;
+            font-size: 120%;
+            border: 1px solid #ccc;
+            border-radius: 3%;
+            box-sizing: border-box;
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+         }
+        .b:hover{
+            background-color: #cb9764;
+         }
+        a{
+            color: brown;
+         }
+        .ins{
+            background-color: #cb9764;
+        }
+        .box{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            align-self: center;
+            background-color: #cb9764;
+            border: 1px solid white;
+        }
+        .on{
+            margin: 2%;
+        }
+        .tw{
+            width: 100%;
+        }
+        @media (max-width: 768px) {
+        .box{
+            display: flex;
+            flex-direction: column;
+        }
+        
+        }
+    </style>
+</head>
+<body>
+
+<h1>Place Order</h1>
+<div class="ins">
+    <p>Please Provide the Address where the Item Will be Delivered.</p>
+    <p>Also Provide the Phone Number which you will Pay with and can be contacted to update you on your order </p>
+    <p>For any questions,<a href="/contacts">Contact Us</a></p>
+</div>
+
+{% if request.session.user_id %}
+<h2>{{ artwork.title }}</h2>
+<div class="box">
+    <div class="on">
+        <p>Price: Ksh. {{ artwork.price }}</p>
+<img src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+
+</div>
+<div class="tw">
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class="b" type="submit" value="Place Order">
+</form></div>
+{% endif %}
+</div>
+</html>

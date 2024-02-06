@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D2B48C;
+        }
+        .con {
+            display:flex;
+            flex-direction: column;
+            
+            width: 50%;
+            color: white;
+            height: 60%;
+            
+            border-color: black;
+            border-radius: 3px;
+            font-size: 140%;
+            background-color: #DEB887;
+            box-shadow: 0 2px 4px white;
+        }
+        h1{
+            background-color: #a35b13;
+            text-align: center;
+            width: 100%;
+        }
+        h4{
+            margin-left: 2%;
+        
+        }
+        .bt{
+            margin-left: 30%;
+        }
+        button{
+            width: 60%;
+            padding: 5%;
+            height: 14%;
+            font-size: 100%;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 5%;
+            box-sizing: border-box;
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #df9d5b;
+
+        }
+        @media (max-width: 768px) {
+            h1{
+                font-size: 120%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+            }
+            h4{
+                font-size: 80%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <div class="con">
+    <h1>Your Account</h1>
+    <h4>Name: {{ user_details.name }}</h4>
+    <h4>Email: {{ user_details.email }}</h4>
+    <div class="bt">
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form></div></div>
+</body>
+</html>

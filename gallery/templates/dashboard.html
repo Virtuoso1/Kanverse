@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Gallery</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DEB887;
+        }
+        .navbar {
+            background-color: #CD853F;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: flex-end;
+        }
+        .navbar button {
+            margin-left: 2%;
+            background-color: #B77433;
+            color: #fff;
+            border: 0;
+            font-size: 110%;
+            border-radius: 3px;
+            width: 8%;
+            
+            cursor: pointer;
+        }
+        .navbar button:hover{
+            background-color: #b27d49;
+            width: 9%;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-left: 10%;
+            padding-top: 2%;
+        
+        }
+        .art-card{
+            background-color: #b27d49;  
+            flex: 1 1 350px; 
+            max-width:350px;
+            height: 500px;
+            border: 1px solid white;
+            color: beige;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+        }
+        p{
+            margin: 0;
+            padding: 0;
+        }
+        .ima{
+            height: 60%;
+        }
+        a{
+            color: rgb(113, 49, 0);
+            margin-top: 2%;
+            font-size: 135%;
+        }
+        .banner {
+            width: 100%;
+            height: 35vh;
+            background-image: url(' static/ban.jpg');
+            background-size: contain;
+            opacity: 90%;
+            background-repeat: no-repeat;
+            background-color: #b2915e;
+            background-position: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align:px center;
+        }
+        .d{
+            color: rgb(239, 239, 239);
+        }
+        .p{
+            color: rgb(253, 253, 253);
+            font-size: 120%;
+        }
+        .a{
+            color: white;
+            font-size: 125%;
+        }
+        .banner h1{
+            font-size: 350%;
+            margin-bottom: 0;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .banner p{
+            font-size: 170%;
+            color: #f4e7da;
+            font-family: 'Times New Roman', Times, serif;
+            width: 35%;
+            font-weight: 520;
+        }
+        @media (max-width: 768px) {
+            .banner{
+                height: 30vh;
+            }
+            .art-card{
+                width: 200px;
+            }
+            .ima{
+                height: 50%;
+            }
+            .banner h1{
+                font-size: 200%;
+                margin-top: 20%;
+            }
+            .banner p{
+                width: 90%;
+                margin-bottom: 20%;
+                font-size: 150%;
+
+            }
+            .navbar button{
+                width: 15%;
+                padding: 1.5%;
+                font-size: 80%;
+                font-weight: 600;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+     
+        <button onclick="location.href='/contacts'">Contact Us</button>
+           {% if request.session.user_id %}
+        <button onclick="location.href='/user_details'">Account</button>
+           {% else %}
+    <button onclick="location.href='/login'">Log In</button>
+        {% endif %}
+        <button onclick="location.href='/cart'">Your Cart</button>
+    </div>
+    <div class="banner">
+        <h1>FEEL THE ART</h1>
+        <p>Art not only deserves to be seen but to be felt.
+            it’s not just a picture but a story.</p>
+    </div>
+    <div class="content">
+        {% for artwork in artworks %}
+
+<div class="art-card">
+    
+    <img class="ima" src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+    <h2>{{ artwork.title }}</h2>
+       <p class="a">Available: {{ artwork.availability }}</p>
+       
+    <p class="p">Price: Ksh {{ artwork.price }}</p>
+ <p class="d">Description: {{ artwork.description }}</p>
+  <a href="{% url 'artwork_details' artwork.id %}">Details & Order</a>
+</div>
+{% endfor %}
+
+    </div>
+</body>
+</html>

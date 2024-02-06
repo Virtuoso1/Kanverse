@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artwork Details</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #DEB887;
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            color: white;
+            text-align: center;
+            text-decoration: underline;
+        }
+        img{
+            align-self: center;
+            width: auto;
+            height: 450px;
+            border: 2px solid white;
+         }
+         p{
+            color: white;
+            margin: 1%;
+            margin-bottom: 3%;
+            text-align: center;
+            font-size: 120%;
+         }
+         input{
+            width: 130%;
+            padding: 5%;
+            margin-bottom: 12%;
+            align-items: center;
+            margin-top: 3%;
+            font-size: 120%;
+            border: 1px solid #ccc;
+            border-radius: 3%;
+            box-sizing: border-box;
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+         }
+         input:hover{
+            background-color: #cb9764;
+            
+         }
+         .box{
+            align-self: center;
+            display: flex;
+            margin: 2%;
+            flex-direction: row;
+            width: 70%;
+         }
+         .in{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+            justify-content: center;
+            background-color:#cb9764;
+            border: 1px solid white;
+
+         }
+         @media (max-width: 768px) {
+            .box{
+                flex-direction: column;
+            }
+         }
+
+    </style>
+</head>
+<body>
+
+<h1>{{ artwork.title }}</h1>
+<div class="box">
+<img src="{{ artwork.image.url }}" alt="{{ artwork.title }}">
+<div class="in">
+<p>Description: {{ artwork.description }}</p>
+<p>Price: Ksh. {{ artwork.price }}</p>
+
+<form method="post" action="{% url 'place_order' artwork.id %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Place Order">
+</form></div>
+</div>
+</body>
+</html>

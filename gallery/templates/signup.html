@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D2B48C;
+        }
+        .login-container {
+            display:flex;
+            flex-direction: row;
+            width: 50%;
+            height: 60%;
+            padding: 20px;
+            border-color: black;
+            border-radius: 3px;
+            background-color: #DEB887;
+            box-shadow: 0 2px 4px white;
+        }
+
+        .login-container h2 {
+            text-align: center;
+            text-decoration: underline;
+            color: #733901;
+            font-size: 200%;
+            margin-top: 0;
+            margin-bottom: 2%;
+        }
+        .lf{
+            display: flex;
+            flex-direction: column;
+            padding: 3%;
+            text-align: center;
+        }
+        .login-container img {
+            flex: 1;
+            width: auto;
+            height: 100%;
+            object-fit: scale-down;
+            margin: 0;
+        }
+        .login-form{
+            color: white;
+        }
+        .login-form input{
+            background-color: #d8be9d;
+            border:0;
+            border-bottom:2px solid brown ;
+            padding: 1%;
+            width: 95%;
+            height:7%;
+            margin-bottom: 2%;
+            font-size: 100%;
+        }
+     
+        .login-form button {
+            width: 60%;
+            padding: 5%;
+            height: 14%;
+            margin-bottom: 15%;
+            font-size: 110%;
+            border: 1px solid #ccc;
+            border-radius: 7%;
+            box-sizing: border-box;
+        }
+        .login-form button {
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+        }
+        .login-form button:hover {
+            background-color: #cb9055;
+        }
+        @media (max-width: 768px) {
+    .error-message{
+        height: 10%;
+    }
+    .login-form button{
+        height: 13%;
+        font-size: 100%;
+        padding: 1%;
+    }
+    .login-container {
+        width: 80%;
+        height: 81.5%;
+        flex-direction: column;
+    }
+    .login-form input{
+        padding: 2%;
+        margin-bottom: 1%;
+        height: 7%;
+    }
+    .login-container img{
+        width: 60%;
+        height: 20%;
+        align-self: center;
+    }
+    .lf{
+        padding: 0;
+    }
+}
+    </style>
+</head>
+<body>
+   <div class="login-container">
+        <img src="{% static 'log.jpg' %}" alt="Logo"> 
+        <div class="lf">
+            <h2>Create Your Account</h2>
+            
+    <form class="login-form" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+    </form>
+
+
+        </div>
+    </div>
+ 
+</body>
+</html>

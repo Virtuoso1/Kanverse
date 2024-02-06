@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Placed</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #D2B48C;
+        }
+        .box{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            color: white;
+            width: 50%;
+            height: 60%;
+            border-color: black;
+            border-radius: 3px;
+            background-color: #DEB887;
+            box-shadow: 0 2px 4px white;
+        }
+        h1{
+            background-color: #8e5509;
+            width: 98%;
+            padding-left: 2%;
+            padding-top: 4%;
+            padding-bottom: 4%;
+        }
+        .mess{
+            margin: 0%;
+            font-size: 120%;
+        }
+        h3{
+            font-size: 130%;
+            text-decoration: underline;
+            margin: 0%;
+            margin-bottom: 2%;
+        }
+        p{
+            margin: 0%;
+            margin-left: 1.5%;
+            margin-right: 1.5%;
+            font-size: 120%;
+        }
+        a{
+            color: brown;
+        }
+        .r{
+            width: 30%;
+            padding: 2%;
+            margin-bottom: 12%;
+            font-size: 100%;
+            border: 1px solid #ccc;
+            border-radius: 7%;
+            box-sizing: border-box;
+            background-color: #CD853F;
+            color: #fff;
+            cursor: pointer;
+        }
+        .r:hover{
+            background-color: #cb9055;
+
+        }
+        @media (max-width: 768px) {
+            .box{
+                width: 70%;
+                height: 80%;
+                font-size: 100%;
+            }
+            p{
+                margin: 4%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+<h1>  Order Placed</h1>
+<p class="mess">Your order has been placed successfully!</p>
+<h3>Payment Instructions</h3>
+<p>Send the required amount through MPESA. Phone no. 0719 322 848<br><br>
+Check in your cart if your payment status has been updated after some time.<br><br>
+Contact us incase of any problems or delays.<br><br>
+Please give us feedback on delivery of the piece through our Instagram account through the link <a href="/contacts">found here</a></p>
+<button class="r" onclick="location.href='/'">Return to Gallery</button>
+</div>
+</body>
+</html>
